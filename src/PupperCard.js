@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import whiskey from './imgscopy/whiskey.jpg';
@@ -14,19 +15,21 @@ class PupperCard extends Component {
         super(props)
     }
     render() {
-        console.log(this.props.passDog);
+        console.log(this.props.newPup);
         return (
             <div>
                 <Col md="auto" >
                     <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src='' />
+                        <Card.Img variant="top" src={this.props.newPup.src} />
                         <Card.Body>
-                            <Card.Title> Title </Card.Title>
+                            <Card.Title> {this.props.newPup.name} </Card.Title>
                             <Card.Text>
                                 Some quick example text to build on the card title and make up the bulk of
                                 the card's content.
                             </Card.Text>
-                            <Button variant="primary">Go Back</Button>
+                            <Link exact to='/'>
+                                <Button variant="primary">Go Back</Button>
+                            </Link>
                         </Card.Body>
                     </Card>
                 </Col>

@@ -12,6 +12,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import PupperCard from './PupperCard';
+import Allpups from './Allpups';
 class App extends Component {
 
   static defaultProps = {
@@ -54,17 +55,12 @@ class App extends Component {
     super(props)
 
 
-
-
   }
-
-
-
 
   render() {
 
     // console.log(this.props.dogs);
-
+    const dogSub = this.props.dogs[0]
     return (
       <>
         <Navbar bg="dark" variant="dark" >
@@ -72,25 +68,39 @@ class App extends Component {
           <Nav className="mr-auto">
             <Nav.Link as={NavLink} exact to='/'>Home</Nav.Link>
             {this.props.dogs.map((dog) => (
-              <Nav.Link as={NavLink} exact to={`/${dog.name}`}   > {dog.name} </Nav.Link>
+              <Nav.Link as={NavLink} exact to={`/${dog.name}`} > {dog.name} </Nav.Link>
             ))}
           </Nav>
         </Navbar>
 
 
+        <Switch>
+          {/* <Route exact path='/whiskey' render={(routeProps) => <PupperCard {...routeProps} newPup={dogSub} />} /> */}
+          <Route exact path='/' render={(routeProps) => <Allpups {...routeProps} indDog={this.props.dogs} />} />
+          {this.props.dogs.map((dog, idx) => (
+            <Route exact path={`/${dog.name}`} render={(routeProps) => <PupperCard {...routeProps} newPup={dog} />} />
+          ))}
+        </Switch>
 
-        <Container className='justify-content-md-center pt-5'>
+
+        {/* <Container className='justify-content-md-center pt-5'>
           <Row className="justify-content-md-center pt-5" >
             {this.props.dogs.map((dog, idx) => (
               <Col xs={6} md={4}>
                 <div key={idx}>
                   <Image src={`${dog.src}`} width={171} height={180} roundedCircle />
-                  <Link exact to={`/${dog.name}`} render={(routeProps) => <PupperCard {...routeProps} passDog={dog} />}  ><h2 style={{ textAlign: 'center', padding: '10px', marginRight: '175px' }}  > {dog.name} </h2></Link>
+                  <Link exact to={`/${dog.name}`}><h2 style={{ textAlign: 'center', padding: '10px', marginRight: '175px' }}  > {dog.name} </h2></Link>
                 </div>
               </Col>
             ))}
           </Row>
-        </Container>
+        </Container> */}
+
+        {/* <Switch>
+          {this.props.dogs.map((dog, idx) => (
+            <Route exact path={`/${dog.name}`} render={(routeProps) => <PupperCard {...routeProps} newPup={dog} />} />
+          ))}
+        </Switch> */}
 
 
       </>
