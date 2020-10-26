@@ -63,7 +63,7 @@ class App extends Component {
             <Nav className="mr-auto">
               <Nav.Link as={NavLink} exact to='/'>Home</Nav.Link>
               {this.props.dogs.map((dog) => (
-                <Nav.Link as={NavLink} exact to={`/${dog.name}`} > {dog.name} </Nav.Link>
+                <Nav.Link as={NavLink} exact to={`/${dog.name}`} key={dog.name} > {dog.name} </Nav.Link>
               ))}
             </Nav>
             {/* <i className="fa fa-bars fa-2x" aria-hidden="true"></i> */}
@@ -74,7 +74,7 @@ class App extends Component {
         <Switch>
           <Route exact path='/' render={(routeProps) => <Allpups {...routeProps} indDog={this.props.dogs} />} />
           {this.props.dogs.map((dog, idx) => (
-            <Route exact path={`/${dog.name}`} render={(routeProps) => <PupperCard {...routeProps} newPup={dog} key={idx} />} />
+            <Route exact path={`/${dog.name}`} render={(routeProps) => <PupperCard {...routeProps} newPup={dog} id={dog.name} />} />
           ))}
         </Switch>
 

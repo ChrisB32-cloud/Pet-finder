@@ -14,7 +14,7 @@ class PupperCard extends Component {
     render() {
         // console.log(this.props.newPup);
         return (
-            <div className='myCont' >
+            <div className='myCont' key={this.props.id}  >
                 <Col md="auto"  >
                     <Card style={{ width: '18rem' }}>
                         <Card.Img variant="top" src={this.props.newPup.src} />
@@ -23,7 +23,7 @@ class PupperCard extends Component {
                             <Card.Subtitle  > Age {this.props.newPup.age} </Card.Subtitle  >
                             <br />
                             {this.props.newPup.facts.map((fact, idx) => (
-                                <Card.Text key={idx} >
+                                <Card.Text key={fact.age} >
                                     {fact}
                                 </Card.Text>
                             ))}
