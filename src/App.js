@@ -56,21 +56,25 @@ class App extends Component {
 
     return (
       <>
-        <Navbar bg="dark" variant="dark" >
+        <Navbar collapseOnSelect expand='lg' bg="dark" variant="dark" >
           <Navbar.Brand as={NavLink} exact to='/'>Doggo</Navbar.Brand>
-          <Nav className="mr-auto">
-            <Nav.Link as={NavLink} exact to='/'>Home</Nav.Link>
-            {this.props.dogs.map((dog) => (
-              <Nav.Link as={NavLink} exact to={`/${dog.name}`} > {dog.name} </Nav.Link>
-            ))}
-          </Nav>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="mr-auto">
+              <Nav.Link as={NavLink} exact to='/'>Home</Nav.Link>
+              {this.props.dogs.map((dog) => (
+                <Nav.Link as={NavLink} exact to={`/${dog.name}`} > {dog.name} </Nav.Link>
+              ))}
+            </Nav>
+            {/* <i className="fa fa-bars fa-2x" aria-hidden="true"></i> */}
+          </Navbar.Collapse>
         </Navbar>
 
 
         <Switch>
           <Route exact path='/' render={(routeProps) => <Allpups {...routeProps} indDog={this.props.dogs} />} />
           {this.props.dogs.map((dog, idx) => (
-            <Route exact path={`/${dog.name}`} render={(routeProps) => <PupperCard {...routeProps} newPup={dog} />} />
+            <Route exact path={`/${dog.name}`} render={(routeProps) => <PupperCard {...routeProps} newPup={dog} key={idx} />} />
           ))}
         </Switch>
 

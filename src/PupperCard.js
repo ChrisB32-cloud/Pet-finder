@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import './PuuperCard.css'
-// import './App.css';
+
 
 
 class PupperCard extends Component {
@@ -12,7 +12,7 @@ class PupperCard extends Component {
         super(props)
     }
     render() {
-        console.log(this.props.newPup);
+        // console.log(this.props.newPup);
         return (
             <div className='myCont' >
                 <Col md="auto"  >
@@ -23,7 +23,7 @@ class PupperCard extends Component {
                             <Card.Subtitle  > Age {this.props.newPup.age} </Card.Subtitle  >
                             <br />
                             {this.props.newPup.facts.map((fact, idx) => (
-                                <Card.Text>
+                                <Card.Text key={idx} >
                                     {fact}
                                 </Card.Text>
                             ))}

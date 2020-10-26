@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import './Allpups.css';
 import Image from 'react-bootstrap/Image'
 
 
@@ -20,8 +21,8 @@ class Allpups extends Component {
                     {this.props.indDog.map((dog, idx) => (
                         <Col xs={6} md={4}>
                             <div key={idx}>
-                                <Image src={`${dog.src}`} width={171} height={180} roundedCircle />
-                                <Link exact to={`/${dog.name}`} style={{ textDecoration: 'none', color: 'lightslategray' }} ><h2 style={{ textAlign: 'center', padding: '10px', marginRight: '175px' }}  > {dog.name} </h2></Link>
+                                <Image src={`${dog.src}`} width={171} height={180} className='pupImg' roundedCircle />
+                                <Link to={`/${dog.name}`} style={{ textDecoration: 'none', color: 'lightslategray' }} ><h2 key={idx} style={{ textAlign: 'center', padding: '10px', marginRight: '175px' }}  > {dog.name} </h2></Link>
                             </div>
                         </Col>
                     ))}
