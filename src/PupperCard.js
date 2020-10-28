@@ -11,7 +11,6 @@ class PupperCard extends Component {
         super(props)
     }
     render() {
-        // console.log(this.props.newPup);
         return (
             <div className='myCont' key={this.props.id}  >
                 <Col md="auto"  >

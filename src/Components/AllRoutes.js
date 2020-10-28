@@ -15,7 +15,7 @@ class AllRoutes extends Component {
             <Switch>
                 <Route exact path='/allpups' render={(routeProps) => <Allpups {...routeProps} indDog={this.props.dogs} />} />
                 {this.props.dogs.map((dog, idx) => (
-                    <Route exact path={`/allpups/${dog.name}`} render={(routeProps) => <PupperCard {...routeProps} newPup={dog} id={dog.name} />} />
+                    <Route exact path={`/allpups/${dog.name}`} render={(routeProps) => <PupperCard {...routeProps} newPup={dog} key={idx} id={dog.name} />} />
                 ))}
                 <Redirect to='/allpups' />
             </Switch>

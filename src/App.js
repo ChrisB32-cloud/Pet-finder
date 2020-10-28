@@ -6,7 +6,6 @@ import NavBarComp from './Components/NavBarComp';
 import AllRoutes from './Components/AllRoutes';
 import './App.css';
 
-
 class App extends Component {
 
   static defaultProps = {
