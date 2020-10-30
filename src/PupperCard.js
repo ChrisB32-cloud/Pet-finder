@@ -9,6 +9,7 @@ import './PuuperCard.css'
 class PupperCard extends Component {
     constructor(props) {
         super(props)
+        // May need state here
     }
     render() {
         return (
