@@ -40,6 +40,16 @@ class App extends Component {
           "Tubby loves eating food."
         ]
       },
+      {
+        name: "Zippy",
+        age: 4,
+        src: tubby,
+        facts: [
+          "Zippy is a smart pupper",
+          "Zippy loves walks.",
+          "Zippy loves eating food."
+        ]
+      },
 
     ]
   }
