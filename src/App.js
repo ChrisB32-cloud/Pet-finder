@@ -42,12 +42,22 @@ class App extends Component {
       },
       {
         name: "Zippy",
-        age: 4,
+        age: 2,
         src: tubby,
         facts: [
           "Zippy is a smart pupper",
           "Zippy loves walks.",
           "Zippy loves eating food."
+        ]
+      },
+      {
+        name: "Jack Jack",
+        age: 1,
+        src: tubby,
+        facts: [
+          "Jack is a smart pupper",
+          "Jack loves walks.",
+          "Jack loves eating food."
         ]
       },
 
